@@ -1,0 +1,22 @@
+{
+  "name": "rpvlc",
+  "version": "0.1.0",
+  "description": "discord rpc for vlc with a tui",
+  "type": "module",
+  "bin": {
+    "rpvlc": "src/index.js"
+  },
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "keywords": ["vlc", "discord", "rpc", "rich-presence", "tui", "lastfm", "scrobble"],
+  "dependencies": {
+    "blessed": "^0.1.81",
+    "music-metadata": "^11.10.0"
+  }
+}
