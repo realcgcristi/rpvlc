@@ -15,6 +15,15 @@
   },
   "license": "MIT",
   "keywords": ["vlc", "discord", "rpc", "rich-presence", "tui", "lastfm", "scrobble"],
+  "author": "realcgcristi",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/realcgcristi/rpvlc.git"
+  },
+  "homepage": "https://github.com/realcgcristi/rpvlc#readme",
+  "bugs": {
+    "url": "https://github.com/realcgcristi/rpvlc/issues"
+  },
   "dependencies": {
     "blessed": "^0.1.81",
     "music-metadata": "^11.10.0"
