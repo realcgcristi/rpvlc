@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { spawn } from "child_process";
 import * as config from "./config.js";
 import * as vlc from "./vlc.js";
@@ -313,4 +314,3 @@ async function onkey(key) {
 
 setInterval(tick, 1000);
 tick();
-
