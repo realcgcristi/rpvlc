@@ -2,6 +2,10 @@
 
 discord rich presence for vlc with a tui. works with any vlc version (2.x–3.x), any discord client (real discord, vesktop/vencord with arRPC), on windows, linux, and macos.
 
+> **status:** developed and tested on linux. windows and macos should work (the code paths are there) but haven't been tested yet — if something's off on those, please open an issue.
+
+> **status:** developed and tested on linux. windows and macos should work (same code paths, node 18+) but haven't been tested yet — if something's off there, please open an issue.
+
 ![screenshot](screenshot.png)
 
 ## features
@@ -33,7 +37,7 @@ npm install -g .
 rpvlc
 ```
 
-requires node 18+ and vlc with the http interface (rpvlc enables it automatically when launching vlc itself).
+requires node 18+ and vlc with the http interface (rpvlc enables it automatically when launching vlc itself). vlc 4.x isn't supported (its http interface changed); if the http interface won't turn on, make sure your vlc build ships the lua scripts — some distro packages strip them.
 
 ## usage
 
@@ -87,6 +91,8 @@ press `s` in the tui. all changes save instantly to `~/.config/rpvlc/config.json
 4. scrobbling happens automatically based on your thresholds
 
 default thresholds: min song duration 60s, scrobble after 60s listened or 50% of the song (whichever first). minimums per last.fm spec: 30s/30s/30%.
+
+note: your last.fm api secret, password, and session key are stored in plaintext in `config.json` — keep that file private.
 
 ## how metadata works
 
