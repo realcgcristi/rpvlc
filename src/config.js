@@ -1,6 +1,7 @@
 import fs from "fs";
 import os from "os";
 import path from "path";
+import { encrypt, decrypt } from "./secrets.js";
 
 const dir = process.platform === "win32"
     ? path.join(process.env.APPDATA || os.homedir(), "rpvlc")
@@ -10,6 +11,8 @@ const file = path.join(dir, "config.json");
 const history = path.join(dir, "history.json");
 
 const CONFIG_VERSION = 1;
+
+const SECRET_FIELDS = ["api_secret", "password", "session_key"];
 
 const defaults = {
     version: CONFIG_VERSION,
@@ -39,6 +42,10 @@ function load() {
         const saved = JSON.parse(fs.readFileSync(file, "utf8"));
         const merged = { ...defaults, ...saved, lastfm: { ...defaults.lastfm, ...(saved.lastfm || {}) } };
 
+        for (const f of SECRET_FIELDS) {
+            merged.lastfm[f] = decrypt(merged.lastfm[f]);
+        }
+
         merged.version = CONFIG_VERSION;
         return merged;
     } catch {
@@ -48,7 +55,11 @@ function load() {
 
 function save(cfg) {
     fs.mkdirSync(dir, { recursive: true });
-    fs.writeFileSync(file, JSON.stringify(cfg, null, 4));
+    const out = { ...cfg, lastfm: { ...cfg.lastfm } };
+    for (const f of SECRET_FIELDS) {
+        if (out.lastfm[f]) out.lastfm[f] = encrypt(out.lastfm[f]);
+    }
+    fs.writeFileSync(file, JSON.stringify(out, null, 4));
 }
 
 function loadhistory() {

@@ -101,7 +101,7 @@ press `s` in the tui. everything saves instantly to `~/.config/rpvlc/config.json
 
 defaults: min song duration 60s, scrobble after 60s listened or 50% of the song, whichever comes first. the floor per last.fm's own spec is 30s/30s/30%.
 
-note: your last.fm api secret, password and session key sit in plaintext in `config.json`. keep that file to yourself.
+note: your last.fm api secret, password and session key are encrypted at rest in `config.json` (aes-256-gcm, key derived from your machine id, with a local key file as fallback). if you copy your config to another machine you'll need to re-enter them.
 
 ## how the metadata guessing works
 
