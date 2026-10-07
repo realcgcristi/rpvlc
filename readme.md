@@ -111,9 +111,12 @@ note: your last.fm api secret, password and session key are encrypted at rest in
 4. **consensus**: for shaky matches it asks a second provider, and both have to agree on the artist
 5. **art fallback**: if your preferred provider has no cover, it tries the other two
 
-if the metadata guessing fails, it can happen, try tweaking the settings! 
-no software can be perfect :_(
-if it still fails with all settings, make an <a href="https://github.com/realcgcristi/rpvlc/issues">issue</a> let me know the song, the wrong result and also what should've been the result
+if the metadata guessing fails, it can happen, try tweaking the settings! <br>
+</br>
+**no software can be perfect :_(** <br>
+</br>
+if it still fails with all settings, make an <a href="https://github.com/realcgcristi/rpvlc/issues">issue</a> let me know the song, the wrong result and also what should've been the result <br>
+</br>
 i may add more metadata providers in the future to combat against this, just gotta find more free ones because no one should be forced to pay just to get information about a song or to listen to one (yes. i mean music providers as well.)
 
 ## config location
